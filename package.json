@@ -4,7 +4,9 @@
   "description": "lista de tareas interactivo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint '**/*.{js,jsx}' --fix",
+    "lint": "eslint '**/*.{js,jsx}'"
   },
   "keywords": [
     "Node"
@@ -14,5 +16,8 @@
   "dependencies": {
     "colors": "^1.4.0",
     "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0"
   }
 }
