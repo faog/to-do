@@ -1,4 +1,5 @@
 const Task = require("./task");
+require('colors');
 
 class Tasks {
   _list = {};
@@ -19,6 +20,17 @@ class Tasks {
   loadTaskFromArray( tasks = []) {
     tasks.forEach(task => {
       this._list[task.id] = task;
+    })
+  }
+
+  fullList() {
+    this.listArray.forEach( (task, id) => {
+      const idx = id +1;
+      const { description, finished } = task;
+
+      const status = ( finished ) ? 'Completed'.green : 'Pending'.red
+
+      console.log(`${idx}. ${description} :: ${status}`)
     })
   }
 
