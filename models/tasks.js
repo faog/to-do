@@ -34,6 +34,26 @@ class Tasks {
     })
   }
 
+  listCompletedPendingTask(completed = true){
+    let count = 0;
+    this.listArray.forEach( task => {
+      const { description, finished } = task;
+      const status = ( finished ) ? 'Completed'.green : 'Pending'.red
+
+      if( completed ) {
+        if( finished ) {
+          count += 1;
+          console.log(`${(count +'.').green} ${description} :: ${finished.green}`)
+        }
+      } else {
+        if( !finished ) {
+          count += 1;
+          console.log(`${(count +'.').green} ${description} :: ${status}`)
+        }
+      }  
+    })
+  }
+  
   createTask(description = ''){
     const task = new Task(description);
     this._list[task.id] = task;
