@@ -1,6 +1,6 @@
 require('colors');
 
-const { confirm, inquirerMenu, deleteListTask, pause, readInput } = require('./helpers/inquirer');
+const { confirm, inquirerMenu, deleteListTask, pause, readInput, showChecklistTask } = require('./helpers/inquirer');
 const { readDB, saveDB } = require('./helpers/saveFile');
 const Tasks = require('./models/tasks');
 
@@ -35,6 +35,11 @@ const main = async() => {
       }
       case '4': {
         tasks.listCompletedPendingTask(false);
+        break;
+      }
+      case '5': {
+        const ids = await showChecklistTask(tasks.listArray);
+        console.log(ids);
         break;
       }
       case '6': {
