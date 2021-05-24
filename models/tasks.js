@@ -66,6 +66,21 @@ class Tasks {
     const task = new Task(description);
     this._list[task.id] = task;
   }
+
+  toggleCompletedTak( ids = []){
+    ids.forEach( id => {
+      const task = this._list[id];
+      if(!task.finished){
+        task.finished = new Date().toISOString();
+      }
+    });
+
+    this.listArray.forEach( task => {
+      if( !ids.includes(task.id)){
+        this._list[task.id].finished = null;
+      }
+    });
+  }
 }
 
 module.exports = Tasks;

@@ -39,7 +39,7 @@ const main = async() => {
       }
       case '5': {
         const ids = await showChecklistTask(tasks.listArray);
-        console.log(ids);
+        tasks.toggleCompletedTak( ids );
         break;
       }
       case '6': {
