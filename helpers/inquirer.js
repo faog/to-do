@@ -80,13 +80,13 @@ const readInput = async(message) => {
   return description;
 };
 
-const deleteListTask = async( tasks = []) => {
-  const choices = tasks.map( (task, i) => {
-    const idx =  `${i +1}.`.green;
+const deleteListTask = async(tasks = []) => {
+  const choices = tasks.map((task, i) => {
+    const idx =  `${i + 1}.`.green;
     return {
       value: task.id,
       name: `${idx} ${task.description}`
-    }
+    };
   });
 
   choices.unshift({
@@ -101,10 +101,10 @@ const deleteListTask = async( tasks = []) => {
       message: 'Delete',
       choices
     }
-  ]
+  ];
   const { id } = await inquirer.prompt(question);
   return id;
-}
+};
 
 const confirm = async (message) => {
   const question = [
@@ -113,19 +113,19 @@ const confirm = async (message) => {
       name: 'ok',
       message
     }
-  ]
+  ];
   const { ok } = await inquirer.prompt(question);
   return ok;
-}
+};
 
-const showChecklistTask = async( tasks = []) => {
-  const choices = tasks.map( (task, i) => {
-    const idx =  `${i +1}.`.green;
+const showChecklistTask = async(tasks = []) => {
+  const choices = tasks.map((task, i) => {
+    const idx =  `${i + 1}.`.green;
     return {
       value: task.id,
       name: `${idx} ${task.description}`,
       checked: (task.finished) ? true : false
-    }
+    };
   });
 
   const question = [
@@ -135,10 +135,10 @@ const showChecklistTask = async( tasks = []) => {
       message: 'Select',
       choices
     }
-  ]
+  ];
   const { ids } = await inquirer.prompt(question);
   return ids;
-}
+};
 
 module.exports = {
   confirm,
