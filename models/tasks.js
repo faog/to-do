@@ -2,7 +2,9 @@ const Task = require("./task");
 require('colors');
 
 class Tasks {
-  _list = {};
+  _list = {
+    'abc': 123
+  };
 
   get listArray() {
     const list = [];
@@ -15,6 +17,12 @@ class Tasks {
 
   constructor() {
     this._list = {};
+  }
+
+  deleteTask(id = '') {
+    if(this._list[id]){
+      delete this._list[id]
+    }
   }
 
   loadTaskFromArray( tasks = []) {
